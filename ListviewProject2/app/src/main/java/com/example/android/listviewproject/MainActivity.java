@@ -46,7 +46,16 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(itemAdapter);
 
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Items selectedItems = shopItems.get(position);
+                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
 
+                intent.putExtra("ITEMS", selectedItems);
+                startActivity(intent);
+            }
+        });
 
 
     }
